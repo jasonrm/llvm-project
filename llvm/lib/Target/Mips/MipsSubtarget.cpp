@@ -91,10 +91,8 @@ MipsSubtarget::MipsSubtarget(const Triple &TT, StringRef CPU, StringRef FS,
   if (MipsArchVersion == MipsDefault)
     MipsArchVersion = Mips32;
 
-  // Don't even attempt to generate code for MIPS-I and MIPS-V. They have not
-  // been tested and currently exist for the integrated assembler only.
-  if (MipsArchVersion == Mips1)
-    report_fatal_error("Code generation for MIPS-I is not implemented", false);
+  // Don't even attempt to generate code for MIPS-V. It has not been
+  // tested and currently exist for the integrated assembler only.
   if (MipsArchVersion == Mips5)
     report_fatal_error("Code generation for MIPS-V is not implemented", false);
 
